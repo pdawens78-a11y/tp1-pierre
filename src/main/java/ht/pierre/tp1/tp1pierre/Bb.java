@@ -1,7 +1,5 @@
 package ht.pierre.tp1.tp1pierre.jsf;
 
-
-import ht.pierre.tp1.tp1pierre.service.Modificateur;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
 import jakarta.faces.model.SelectItem;
@@ -51,6 +49,11 @@ public class Bb implements Serializable {
      * La conversation depuis le début.
      */
     private StringBuilder conversation = new StringBuilder();
+
+    private boolean debug;
+
+    private String texteRequeteJson;
+    private String texteReponseJson;
 
     /**
      * Service pour modifier la question et générer la réponse.
@@ -110,6 +113,39 @@ public class Bb implements Serializable {
     public void setConversation(String conversation) {
         this.conversation = new StringBuilder(conversation);
     }
+
+    // Debug
+
+    public boolean isDebug() {
+        return debug;
+    }
+
+    public void setDebug(boolean debug) {
+        this.debug = debug;
+    }
+
+    public void toggleDebug() {
+        this.setDebug(!isDebug());
+    }
+
+    // Json
+
+    public String getTexteRequeteJson() {
+        return texteRequeteJson;
+    }
+
+    public void setTexteRequeteJson(String texteRequeteJson) {
+        this.texteRequeteJson = texteRequeteJson;
+    }
+
+    public String getTexteReponseJson() {
+        return texteReponseJson;
+    }
+
+    public void setTexteReponseJson(String texteReponseJson) {
+        this.texteReponseJson = texteReponseJson;
+    }
+
 
     /**
      * Envoie la question au serveur.
@@ -180,18 +216,17 @@ public class Bb implements Serializable {
                     If the user type an English text, you translate it into French.
                     If the text contains only one to three words, give some examples of usage of these words in English.
                     """;
-            this.listeRolesSysteme.add(new SelectItem(role, "Traducteur"));
+            this.listeRolesSysteme.add(new SelectItem(role, "Traducteur Anglais-Français"));
 
             role = """
                     Your are a travel guide. If the user type the name of a country or of a town,
                     you tell them what are the main places to visit in the country or the town
                     are you tell them the average price of a meal.
                     """;
-            this.listeRolesSysteme.add(new SelectItem(role, "Guide"));
+            this.listeRolesSysteme.add(new SelectItem(role, "Guide touristique"));
         }
 
         return this.listeRolesSysteme;
     }
 
 }
-

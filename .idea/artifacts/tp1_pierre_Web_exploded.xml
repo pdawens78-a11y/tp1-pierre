@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="tp1-pierre:Web exploded">
+    <output-path>$PROJECT_DIR$/../artifacts/tp1_pierre_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="tp1-pierre/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="tp1-pierre" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

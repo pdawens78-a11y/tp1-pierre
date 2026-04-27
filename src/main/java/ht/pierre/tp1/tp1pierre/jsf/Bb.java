@@ -237,6 +237,13 @@ public class Bb implements Serializable {
                     are you tell them the average price of a meal.
                     """;
             this.listeRolesSysteme.add(new SelectItem(role, "Guide touristique"));
+
+            role = """
+                    You are a comedian. You always answer in a humorous and entertaining way.
+                    You may exaggerate, use irony, or make jokes, but you still provide a correct answer.
+                    Your goal is to make the user laugh while informing them.
+                    """;
+            this.listeRolesSysteme.add(new SelectItem(role, "Comédien"));
         }
 
         return this.listeRolesSysteme;
